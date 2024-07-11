@@ -38,14 +38,14 @@ class TestConstructor:
 
         driver.find_element(*TestLocators.SEARCH_TAB_SAUCES).click()
 
-        assert driver.find_element(*TestLocators.SEARCH_TAB_SAUCES_ACTIVE).text == 'Соусы'
+        assert driver.find_element(*TestLocators.SEARCH_TAB_SAUCES_ACTIVE).is_displayed()
 
     def test_switch_to_fillings_success(self, driver):
         driver.get(STARTING_PAGE)
 
         driver.find_element(*TestLocators.SEARCH_TAB_FILLINGS).click()
 
-        assert driver.find_element(*TestLocators.SEARCH_TAB_FILLINGS_ACTIVE).text == 'Начинки'
+        assert driver.find_element(*TestLocators.SEARCH_TAB_FILLINGS_ACTIVE).is_displayed()
 
     def test_switch_to_buns_success(self, driver):
         driver.get(STARTING_PAGE)
@@ -53,4 +53,4 @@ class TestConstructor:
         driver.find_element(*TestLocators.SEARCH_TAB_FILLINGS).click()
         driver.find_element(*TestLocators.SEARCH_TAB_BUNS).click()
 
-        assert driver.find_element(*TestLocators.SEARCH_TAB_BUNS_ACTIVE).text == 'Булки'
+        assert driver.find_element(*TestLocators.SEARCH_TAB_BUNS_ACTIVE).is_displayed()

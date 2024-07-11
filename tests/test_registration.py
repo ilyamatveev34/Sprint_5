@@ -5,13 +5,14 @@ from test_data import STARTING_PAGE, LOGIN_PAGE
 
 
 class TestRegistration:
-    def test_registration_success(self, driver):
+    def test_registration_success(self, driver, email_generator):
+        email, name = email_generator
         driver.get(STARTING_PAGE)
 
         driver.find_element(*TestLocators.SEARCH_LOGIN_BUTTON_MAIN_PAGE).click()
         driver.find_element(*TestLocators.SEARCH_REGISTER_BUTTON_LOGIN_PAGE).click()
-        driver.find_element(*TestLocators.SEARCH_INPUT_NAME_REGISTRATION).send_keys("Ilia")
-        driver.find_element(*TestLocators.SEARCH_INPUT_EMAIL_REGISTRATION).send_keys("ilyamatveev1@gmail.com")
+        driver.find_element(*TestLocators.SEARCH_INPUT_NAME_REGISTRATION).send_keys(name)
+        driver.find_element(*TestLocators.SEARCH_INPUT_EMAIL_REGISTRATION).send_keys(email)
         driver.find_element(*TestLocators.SEARCH_INPUT_PASSWORD_REGISTRATION).send_keys("elirose")
         driver.find_element(*TestLocators.SEARCH_REGISTER_BUTTON).click()
 
